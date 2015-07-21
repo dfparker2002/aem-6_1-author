@@ -1,7 +1,7 @@
 # DOCKER-VERSION 1.7.0 AUTHOR
+FROM dbenge/aem-6-1-base
 LABEL version="1.0"
 LABEL description="AEM author docker image"
-FROM dbenge/aem-6-1-base
 MAINTAINER dbenge
 
 #Copies required build media
