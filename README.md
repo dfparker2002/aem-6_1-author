@@ -15,4 +15,4 @@ run the image with this command
 docker run --name AEM_AUTHOR -p 4502:4502 -d aem_6-1_author
 ```
 
-Still a work in progress.  We have not finished end to end tesing yet.
+Still a work in progress.  It works now but its still a work in progress and needs more tuning.
