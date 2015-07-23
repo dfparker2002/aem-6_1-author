@@ -19,4 +19,4 @@ ADD resources/org.apache.sling.commons.log.LogManager.config /aem/crx-quickstart
 RUN ["python","aemInstaller.py","-i","cq-author-4502.jar","-r","author","-p","4502"]
 
 EXPOSE 4502
-ENTRYPOINT ["/aem/crx-quickstart/bin/quickstart"]
+ENTRYPOINT ["/aem/crx-quickstart/bin/quickstart","CQ_JVM_OPTS=-XX:MaxPermSize=512M -Xmx2G -XX:+UseParallelGC -XX:+UseParallelOldGC"]
