@@ -1,5 +1,5 @@
 # DOCKER-VERSION 1.7.0 AUTHOR
-FROM dbenge/aem-6-1-base
+FROM dbenge/aem-6_1-base
 LABEL version="1.0"
 LABEL description="AEM author docker image"
 MAINTAINER dbenge
@@ -18,5 +18,10 @@ ADD resources/org.apache.sling.commons.log.LogManager.config /aem/crx-quickstart
 # Installs AEM
 RUN ["python","aemInstaller.py","-i","cq-author-4502.jar","-r","author","-p","4502"]
 
+WORKDIR /aem/crx-quickstart/bin
+RUN mv quickstart quickstart.original
+ADD resources/quickstart /aem/crx-quickstart/bin/quickstart
+RUN chmod +x /aem/crx-quickstart/bin/quickstart
+
 EXPOSE 4502
-ENTRYPOINT ["/aem/crx-quickstart/bin/quickstart","CQ_JVM_OPTS=-XX:MaxPermSize=512M -Xmx2G -XX:+UseParallelGC -XX:+UseParallelOldGC"]
+ENTRYPOINT ["/aem/crx-quickstart/bin/quickstart"]
